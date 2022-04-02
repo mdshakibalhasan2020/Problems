@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int M_of_element = nums.size()/2;
+        map<int,int>frequency;
+        for(int i=0;i<nums.size();i++){
+            frequency[nums[i]]++;
+            if(frequency[nums[i]] > M_of_element){
+                return nums[i];
+            }
+        }
+        return {};
+        
+    }
+};
+//another way is voting algorithm;
