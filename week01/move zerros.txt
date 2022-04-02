@@ -1,0 +1,23 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int len = nums.size();
+        if(len < 0 || len < 1){
+            return;
+        }
+        int L_pointer = 0,R_pointer = 0;
+        int S_element;
+        while(R_pointer < len){
+            if(nums[R_pointer] == 0){
+                R_pointer++;
+            }
+            else{
+                S_element = nums[R_pointer];
+                nums[R_pointer] = nums[L_pointer];
+                nums[L_pointer] = S_element;
+                L_pointer++;
+                R_pointer++;
+            }
+        }
+    }
+};
