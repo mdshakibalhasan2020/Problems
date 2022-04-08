@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        //aul faul solution
+        /*int sz = nums.size();
+        sort(nums.begin(),nums.end());
+        return nums[sz-k];
+        */
+        int len = nums.size();
+        priority_queue<int> visited;
+        for(int i=0;i<len;i++){
+            visited.push(nums[i]);
+        }
+        for(int i=0;i<k-1;i++){
+            visited.pop();
+        }
+        return visited.top();
+    }
+};
